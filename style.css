@@ -6,6 +6,11 @@
     --main-color: #68C4A1;
     --main-color-titles: #333333;
     --main-color-text: #777777;
+    --other-color: #ffffff;
+    --main-section-padding: 0px 0px 120px 0px;
+    --main-section-difference: 120px 0px 120px 0px;
+    --heading-block-padding: 0px 0px 70px 0px;
+    --heading-block-icon-margin: 0px 0px 30px 0px;
     --header-padding: 30px 0px 0px 0px;
     --header-list-margin: 0px 60px 0px 0px;
     --hero-body-padding: 372px 0px 213px 0px;
@@ -94,6 +99,22 @@ body {
     display: none;
 }
 
+.heading-block {
+    padding: var(--heading-block-padding);
+    text-align: center;
+}
+
+.heading-block__icon {
+    margin: var(--heading-block-icon-margin);
+}
+
+.heading-block__title {
+    font-size: var(--main-font-size);
+    font-weight: 600;
+    line-height: var(--main-line-height);
+    text-transform: uppercase;
+}
+
 
 /* ----------------CONTAINER------------------------------------------------- */
 
@@ -114,6 +135,18 @@ body {
     top: 0;
     left: 0;
     object-fit: cover;
+}
+
+#difference {
+    padding: var(--main-section-difference);
+}
+
+#testimonials,
+#reasons,
+#our-works,
+#alg,
+#form {
+    padding: var(--main-section-padding);
 }
 
 
@@ -216,6 +249,115 @@ body {
 }
 
 
+/* ----------------DIFFERENCE------------------------------------------------- */
+
+.difference__images {
+    display: flex;
+}
+
+.difference__left {
+    display: flex;
+    flex-direction: column;
+    width: 66.67%;
+}
+
+.difference-right {
+    width: 33.33%;
+}
+
+.left-difference__row {
+    display: flex;
+}
+
+.left-difference__img-one,
+.left-difference__img-two {
+    width: 50%;
+    height: 500px;
+}
+
+.left-difference__img-one,
+.left-difference__img-two,
+.left-difference__work-three,
+.rigth-difference__work-four {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-difference__img-one {
+    background: url('./assets/img/works-one.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.left-difference__img-two {
+    background: url('./assets/img/works-two.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.left-difference__work-three {
+    width: 100%;
+    background: url('./assets/img/works-three.jpg') center center no-repeat;
+    background-size: cover;
+    height: 460px;
+}
+
+.rigth-difference__work-four {
+    width: 100%;
+    background: url('./assets/img/works-four.jpg') center center no-repeat;
+    background-size: cover;
+    height: 960px;
+}
+
+.left-difference__img-one::after,
+.left-difference__img-two::after,
+.left-difference__work-three::after,
+.rigth-difference__work-four::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.left-difference__img-one:hover::after,
+.left-difference__img-two:hover::after,
+.left-difference__work-three:hover::after,
+.rigth-difference__work-four:hover::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(104, 196, 161, 0.7);
+    z-index: 6;
+}
+
+.difference__desc {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: scale(0);
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+.left-difference__img-one:hover .difference__desc,
+.left-difference__img-two:hover .difference__desc,
+.left-difference__work-three:hover .difference__desc,
+.rigth-difference__work-four:hover .difference__desc {
+    transform: scale(1);
+}
+
+.difference__text {
+    font-weight: 700;
+    color: var(--other-color);
+    text-transform: uppercase;
+}
+
+
 /* ----------------MEDIA------------------------------------------------- */
 
 @media (max-width: 1440px) {
@@ -223,12 +365,27 @@ body {
         --hero-body-padding: 332px 0px 173px 0px;
         --hero-heading-margin: 0px 0px 273px 0px;
     }
+    /* ----------------DIFFERENCE------------------------------------------------- */
+    .difference__images {
+        flex-direction: column;
+    }
+    .difference__left {
+        width: 100%;
+    }
+    .difference-right {
+        width: 100%;
+    }
+    .rigth-difference__work-four {
+        height: 600px;
+    }
 }
 
 @media (max-width: 1024px) {
      :root {
         --main-font-size: 18px;
         --main-line-height: 20px;
+        --main-section-padding: 0px 0px 80px 0px;
+        --main-section-difference: 80px 0px 80px 0px;
         --header-padding: 25px 0px 0px 0px;
         --header-list-margin: 0px 40px 0px 0px;
         --hero-body-padding: 302px 0px 143px 0px;
@@ -246,6 +403,10 @@ body {
 
 @media (max-width: 768px) {
      :root {
+        --main-section-padding: 0px 0px 60px 0px;
+        --main-section-difference: 60px 0px 60px 0px;
+        --heading-block-padding: 0px 0px 40px 0px;
+        --heading-block-icon-margin: 0px 0px 20px 0px;
         --header-padding: 20px 0px 0px 0px;
         --header-list-margin: 0px 30px 0px 0px;
         --hero-body-padding: 202px 0px 103px 0px;
@@ -258,6 +419,21 @@ body {
     .logo img {
         width: 67px;
         height: 64px;
+    }
+    .heading-block__icon svg {
+        width: 50px;
+        height: 50px;
+    }
+    /* ----------------DIFFERENCE------------------------------------------------- */
+    .left-difference__row {
+        flex-direction: column;
+    }
+    .left-difference__img-one,
+    .left-difference__img-two {
+        width: 100%;
+    }
+    .rigth-difference__work-four {
+        height: 400px;
     }
 }
 
@@ -275,12 +451,27 @@ body {
      :root {
         --main-font-size: 16px;
         --main-line-height: 18px;
+        --main-section-padding: 0px 0px 30px 0px;
+        --main-section-difference: 30px 0px 30px 0px;
+        --heading-block-padding: 0px 0px 20px 0px;
+        --heading-block-icon-margin: 0px 0px 10px 0px;
         --header-padding: 15px 0px 0px 0px;
         --header-list-margin: 0px 20px 0px 0px;
     }
     .logo img {
         width: 57px;
         height: 54px;
+    }
+    .heading-block__icon svg {
+        width: 40px;
+        height: 40px;
+    }
+    /* ----------------DIFFERENCE------------------------------------------------- */
+    .left-difference__img-one,
+    .left-difference__img-two,
+    .left-difference__work-three,
+    .rigth-difference__work-four {
+        height: 300px;
     }
 }
 
